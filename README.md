@@ -1,1 +1,1 @@
-# A website with miscellaneous tools
+# A website with miscellaneous tools written in Django
