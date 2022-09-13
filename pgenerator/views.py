@@ -25,8 +25,8 @@ def determineCharset(c):
 def checkError(p):
     try:
         a = int(p)
-        if a < 0 or a > 100:
-            return "Number between 0 and 100"
+        if a < 0 or a > 500:
+            return "Number between 0 and 500"
     except:
         return "Type a number"
     return
