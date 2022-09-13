@@ -1,0 +1,19 @@
+{% extends "pgenerator/base.html" %}
+
+{% block title %}PGen Home{% endblock title %}
+
+{% block body %}
+    <h1> Password Generator </h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="plength">Password Length: </label>
+        <input type="number" name="plength" id="plength" size="1">
+        <input type="submit" value="Generate">
+    </form>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    {% if randompassword %}
+        <p>{{ randompassword }}</p>
+    {% endif %}
+{% endblock body %}
