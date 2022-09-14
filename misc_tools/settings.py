@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pgenerator',
+    'todo_app',
+    'users',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +127,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = 'static/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

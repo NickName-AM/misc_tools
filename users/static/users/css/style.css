@@ -1,0 +1,32 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;   
+}
+
+.body{
+    width: 70%;
+    margin: auto auto;
+}
+
+.submit-btn {
+    display: inline;
+    margin: 0.1em 0em;
+    padding: 0.5em;
+    background-color: #459cf3;
+    border-radius: 0.5em;
+    color: #ffffff;
+    border: none;
+    transition: all ease 0.2s;
+}
+
+.submit-btn:hover{
+    margin: 0em 0em;
+    padding: 0.6em;
+}
+
+
+.internal-link:hover{
+    text-decoration: none;
+    color: #1e5fa0
+}

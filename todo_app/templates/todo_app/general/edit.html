@@ -1,0 +1,21 @@
+{% extends 'todo_app/core/core.html' %}
+{% load static %}
+{% block title %}Edit{% endblock title %}
+
+
+{% block body %}
+<div class = "container">
+    <div class = "block_note">
+        <h1>{{title}}</h1>
+    </div>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class = "block_note">
+            <label for="description"><h1>Description:</h1></label>
+            <input type="text" name="description" id="description" size="50" maxlength="30" style="padding: 20px;font-size: 20px;">
+        </div>
+            <center><input type="submit" class="submit-btn" value="Update"></center>
+    </form>
+</div>
+{% endblock body %}

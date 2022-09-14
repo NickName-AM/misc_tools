@@ -9,6 +9,14 @@
     <title>{% block title %}Core{% endblock title %}</title>
 </head>
 <body>
+    <div class="message">
+    {% if messages %}
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+    {% endif %}
+    </div>
+
     {% block body %}
     {% endblock body %}
 </body>

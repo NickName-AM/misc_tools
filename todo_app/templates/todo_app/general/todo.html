@@ -1,0 +1,24 @@
+{% extends 'todo_app/core/core.html' %}
+{% load static %}
+{% block title %}TODO{% endblock title %}
+
+{% block body %}
+<div class = "container">
+    {% if not notes %}
+    <div class="block_note">
+        <center><h1>Hurray! There is nothing here.</h1></center>
+    </div>
+    {% else %}
+        {% for note in notes %}
+        <div class = "block_note">
+            <h1>{{note.heading}}</h1>
+            <h2>{{note.description}}</h2>
+            <small>{{note.date_added}}</small><br><br>
+            <a href="{% url 'edit' n_id=note.id %}">Edit</a>
+            <a href="{% url 'delete' n_id=note.id %}">Delete</a>
+        </div>
+        {% endfor %}
+    {% endif %}
+        <center><a class="submit-btn" href="{% url 'add' %}">Add Note</a></center>
+</div>
+{% endblock body %}
