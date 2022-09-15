@@ -5,11 +5,11 @@ from todo_app.models import Note
 
 def todo(request):
     notes_from_db = Note.objects.all()
-    return render(request, 'todo_app/general/todo.html', {'notes': notes_from_db})
+    return render(request, 'todo_app/todo.html', {'notes': notes_from_db})
 
 def add(request):
     if request.method == "GET":
-        return render(request, 'todo_app/general/add.html')
+        return render(request, 'todo_app/add.html')
     elif request.method == "POST":
         Note.objects.create(
             heading=request.POST['heading'],
@@ -19,7 +19,7 @@ def add(request):
 
 def edit(request, n_id):
     if request.method == "GET":
-        return render(request, 'todo_app/general/edit.html', {'title': Note.objects.get(id=n_id)})
+        return render(request, 'todo_app/edit.html', {'title': Note.objects.get(id=n_id)})
     elif request.method == "POST":
         # Get the note whose value is n_id
         note = Note.objects.get(id=n_id)

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}PGen Home{% endblock title %}
+
+{% block body %}
+<div class="body">
+    <h1> Password Generator </h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-radio">
+            <div class="form-radio-item">
+                <input type="radio" name="charset" id="ucase" value="upper">
+                <label for="ucase">Uppercase [A-Z]</label><br>
+            </div>
+            <div class="form-radio-item">
+                <input type="radio" name="charset" id="lcase" value="lower">
+                <label for="lcase">Lowercase [a-z]</label><br>
+            </div>
+            <div class="form-radio-item">
+                <input type="radio" name="charset" id="digit" value="digit">
+                <label for="digit">Digits [0-9]</label><br>
+            </div>
+            <div class="form-radio-item">
+                <input type="radio" name="charset" id="symbol" value="symbol">
+                <label for="symbol">Symbols [!@#...*:]</label><br>
+            </div>
+            <div class="form-radio-item">
+                <input type="radio" name="charset" id="all" value="all" checked>
+                <label for="all">All</label>
+             </div>   
+        </div>
+        <div class="form-plength">
+            <label for="plength">Password Length: </label><br>
+            <input type="number" name="plength" id="plength" size="15" placeholder="Ex: 10" class="input-box">
+            <input type="submit" value="Generate" class="submit-btn">
+        </div>
+    </form>
+    {% if error %}
+        <p id="error">{{ error }}</p>
+    {% endif %}
+    {% if randompassword %}
+        <p id="password">{{ randompassword }}</p>
+    {% endif %}
+    
+</div>
+{% endblock body %}

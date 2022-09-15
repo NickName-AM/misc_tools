@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* for base */
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container{
+    display: flex;
+    height: 100vh;
+}
+
+.item-1{
+    flex-basis: 15%;
+    background-color: #333333; /* Change this later */
+    padding: 10px;
+}
+
+.item-2{
+    flex-basis: 85%;
+    background-color: #dddddd; /* Change this later */
+    padding: 20px;
+}
+
+/* End base */
+
+/* for pgenerator */
+h1{
+    display: inline-block;
+    margin: 20px 0px;
+    font-size: 40px;
+}
+
+.form-radio{
+    margin: 20px 0px;
+    font-size: 20px;
+    display: inline-flex;
+    flex-direction: column;
+    border: 2px #000000 solid;
+    padding: 10px;
+    justify-content: flex-start;
+}
+
+.form-radio-item{
+    margin: 5px;
+    padding: 2px;
+}
+
+.form-plength{
+    font-size: 20px;
+    margin: 10px 0px;
+    padding: 5px;
+}
+
+.input-box{
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 15%;
+}
+
+.submit-btn{
+    background-color: #5f4bf0;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    box-shadow: 0px 0px 5px #363535;
+    border-radius: 15%;
+}
+
+#error{
+    color: #e03d3d;
+}
+
+#password{
+    display: inline-block;
+    padding: 10px;
+    margin: 10px 0px;
+    background-color: #cccccc;
+}
+
+/* end pgenerator */

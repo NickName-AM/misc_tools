@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <title>{% block title %}Core{% endblock title %}</title>
+</head>
+<body>
+    <div class="message">
+        {% if messages %}
+            {% for message in messages %}
+                {{message}}
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="container">
+        <div class="items item-1">
+            <!-- Left navbar-->    
+        </div>
+        <div class="items item-2">
+            <!-- Right body -->
+            {% block body %}
+            {% endblock body %}
+        </div>
+    </div>
+</body>
+</html>
