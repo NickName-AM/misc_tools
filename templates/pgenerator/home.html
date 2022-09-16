@@ -28,7 +28,7 @@
                 <input type="radio" name="charset" id="all" value="all" checked>
                 <label for="all">All</label>
              </div>   
-        </div>
+        </div><br>
         <div class="form-plength">
             <label for="plength">Password Length: </label><br>
             <input type="number" name="plength" id="plength" size="15" placeholder="Ex: 10" class="input-box">
@@ -36,10 +36,10 @@
         </div>
     </form>
     {% if error %}
-        <p id="error">{{ error }}</p>
+        <p class="error-password" id="error">{{ error }}</p>
     {% endif %}
     {% if randompassword %}
-        <p id="password">{{ randompassword }}</p>
+        <p class="error-password" id="password">{{ randompassword }}</p>
     {% endif %}
     
 </div>

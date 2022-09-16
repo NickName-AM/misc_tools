@@ -3,7 +3,6 @@
 {% block title %}TODO{% endblock title %}
 
 {% block body %}
-<div class = "container">
     {% if not notes %}
     <div class="block_note">
         <center><h1>Hurray! There is nothing here.</h1></center>
@@ -20,5 +19,4 @@
         {% endfor %}
     {% endif %}
         <center><a class="submit-btn" href="{% url 'add' %}">Add Note</a></center>
-</div>
 {% endblock body %}

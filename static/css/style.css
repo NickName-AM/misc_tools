@@ -13,16 +13,30 @@
     height: 100vh;
 }
 
-.item-1{
+.item-1-light{
     flex-basis: 15%;
-    background-color: #333333; /* Change this later */
+    background-image: linear-gradient(to right, #80ffdb, #72efdd);
     padding: 10px;
+    box-shadow: 2px 0px 10px black;
 }
 
-.item-2{
+.item-2-light{
     flex-basis: 85%;
-    background-color: #dddddd; /* Change this later */
-    padding: 20px;
+    background-color: #80ffdb77; /* Change this later */
+    padding: 30px;
+}
+
+.item-1-dark{
+    flex-basis: 15%;
+    background-image: linear-gradient(to right, #0c020f, #15101a);
+    padding: 10px;
+    box-shadow: 2px 0px 10px black;
+}
+
+.item-2-dark{
+    flex-basis: 85%;
+    background-color: #1d1d25; /* Change this later */
+    padding: 30px;
 }
 
 /* End base */
@@ -30,8 +44,12 @@
 /* for pgenerator */
 h1{
     display: inline-block;
-    margin: 20px 0px;
+    margin: 0px 0px 20px 0px;
     font-size: 40px;
+    box-shadow: 0px 0px 10px;
+    border: 1px #000000 solid;
+    padding: 10px;
+    border-radius: 20px;
 }
 
 .form-radio{
@@ -39,7 +57,8 @@ h1{
     font-size: 20px;
     display: inline-flex;
     flex-direction: column;
-    border: 2px #000000 solid;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px;
     padding: 10px;
     justify-content: flex-start;
 }
@@ -50,17 +69,22 @@ h1{
 }
 
 .form-plength{
+    display: inline-block;
     font-size: 20px;
     margin: 10px 0px;
-    padding: 5px;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px;
 }
 
 .input-box{
     padding: 10px;
     margin: 5px;
     border: none;
-    border-radius: 15%;
+    border-radius: 20px;
+    border: 2px transparent solid;
 }
+
 
 .submit-btn{
     background-color: #5f4bf0;
@@ -68,18 +92,20 @@ h1{
     padding: 10px;
     border: none;
     box-shadow: 0px 0px 5px #363535;
-    border-radius: 15%;
+    border-radius: 10px;
+}
+
+.error-password{
+    display: inline-block;
+    margin: 20px 0px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px #363535;
+    border-radius: 20px;
+    font-size: 20px;
 }
 
 #error{
-    color: #e03d3d;
-}
-
-#password{
-    display: inline-block;
-    padding: 10px;
-    margin: 10px 0px;
-    background-color: #cccccc;
+    color: red;
 }
 
 /* end pgenerator */
