@@ -1,11 +1,13 @@
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render, resolve_url
 from todo_app.models import Note
+from math import ceil
 # Create your views here.
 
 def todo(request):
     notes_from_db = Note.objects.all()
-    return render(request, 'todo_app/todo.html', {'notes': notes_from_db})
+    pages = ceil(len(notes_from_db) / 4)        # 4 notes in each page
+    return render(request, 'todo_app/todo.html', {'notes': notes_from_db, 'pages': pages})
 
 def add(request):
     if request.method == "GET":
@@ -13,7 +15,7 @@ def add(request):
     elif request.method == "POST":
         Note.objects.create(
             heading=request.POST['heading'],
-            description=request.POST['description']
+            description=request.POST['description'],
         )
         return redirect('todo')
 

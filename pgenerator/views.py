@@ -43,7 +43,7 @@ def home(request):
             err = {'error': error}
             return render(request, 'pgenerator/home.html', err)
         randomPassword = ''.join(random.choices(charSet, k=int(pLength)))
-        return render(request, 'pgenerator/home.html', {'randompassword': randomPassword})
+        return render(request,'pgenerator/home.html', {'randompassword': randomPassword})
 
     return render(request, 'pgenerator/home.html')
     

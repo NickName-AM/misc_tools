@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+/* Universal */
+a{
+    text-decoration: none;
+}
+
+p{
+    font-size: 20px;
+}
+/* End Universal */
+
 /* for base */
 *{
     padding: 0px;
@@ -10,7 +20,7 @@
 
 .container{
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .item-1-light, .item-1-dark{
@@ -31,16 +41,18 @@
 }
 
 .item-2-dark{
-    background-color: #1d1d25; 
+    background-color: #1d1d25;
 }
 
 .item-1-dark>*, .item-2-dark>*{
     color: #ffffffcc;
 }
+
+
 /* End base */
 
 /* for pgenerator */
-h1{
+h1, h2{
     display: inline-block;
     margin: 0px 0px 20px 0px;
     font-size: 40px;
@@ -107,3 +119,15 @@ h1{
 }
 
 /* end pgenerator */
+
+/* TODO */
+h2{
+    font-size: 30px;
+}
+
+.block-note{
+    display: inline-block;
+    margin: 10px 0px;
+}
+
+/* End TODO */
