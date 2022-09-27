@@ -5,10 +5,42 @@ a{
     text-decoration: none;
 }
 
+a:hover{
+    text-decoration: none;
+    color: #ffffff;
+}
+
 p{
     font-size: 20px;
 }
 /* End Universal */
+
+/* Index */
+.user-icon{
+    font-size: 30px;
+    padding: 5px;
+    margin-bottom: 30px;
+}
+
+ol{
+    text-decoration: none;
+}
+
+.list-items>a{
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.list-items{
+    padding: 5px;
+    border: 2px transparent solid;
+    overflow: hidden;
+}
+
+.list-items:hover{
+    border-color: #ffffffcc;
+}
+/* End Index */
 
 /* for base */
 *{
@@ -18,7 +50,7 @@ p{
     font-family: 'Roboto', sans-serif;
 }
 
-.container{
+.container-home{
     display: flex;
     min-height: 100vh;
 }
@@ -125,9 +157,16 @@ h2{
     font-size: 30px;
 }
 
-.block-note{
+.block_note{
     display: inline-block;
-    margin: 10px 0px;
+    margin: 20px 0px;
+}
+
+.add-note-heading{
+    font-size: 20px;
+}
+.add-note-description{
+    font-size: 20px;
 }
 
 /* End TODO */

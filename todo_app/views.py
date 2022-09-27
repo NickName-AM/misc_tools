@@ -17,7 +17,7 @@ def add(request):
             heading=request.POST['heading'],
             description=request.POST['description'],
         )
-        return redirect('todo')
+        return redirect('todo-home')
 
 def edit(request, n_id):
     if request.method == "GET":
@@ -27,9 +27,9 @@ def edit(request, n_id):
         note = Note.objects.get(id=n_id)
         note.description=request.POST['description']
         note.save()
-        return redirect('todo')
+        return redirect('todo-home')
 
 def delete(request, n_id):
     note = Note.objects.get(id=n_id)
     note.delete()
-    return redirect('todo')
+    return redirect('todo-home')
