@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Profile{% endblock title %}
+
+{% block body %}
+<div class="profile">
+    <div>
+        <h1>Profile: {{user.username}}</h1>
+    </div>
+    <div class="profileform">
+        <form method="POST">
+            {% csrf_token %}
+            <label for="username">Username: </label>
+            <div class="profileinput">
+                <input type="text" name="username" id="username" value="{{user.username}}" maxlength="150" required class="input-box" size="70">
+            </div>
+            <label for="newpassword">New Password: </label>
+            <div class="profileinput">
+                <input type="password" name="newpassword" id="newpassword" class="input-box" size="70">
+            </div>
+            <label for="oldpassword">Old Password: </label>
+            <div class="profileinput">
+                <input type="password" name="oldpassword" id="oldpassword" class="input-box" size="70">
+            </div>
+            <div>
+                <input type="submit" value="Change" class="submit-btn">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock body %}
