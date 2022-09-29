@@ -23,10 +23,13 @@
             <div class="profileinput">
                 <input type="password" name="oldpassword" id="oldpassword" class="input-box" size="70">
             </div>
-            <div>
+            <div style="margin-top: 20px;">
                 <input type="submit" value="Change" class="submit-btn">
             </div>
         </form>
+        <div style="margin-top: 20px;">
+            <a href="{% url 'user-signout' %}">Sign Out</a>
+        </div>
     </div>
 </div>
 {% endblock body %}

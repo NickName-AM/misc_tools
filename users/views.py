@@ -58,7 +58,7 @@ def profile(request):
                     user.set_password(new_passwd)
                     user.save()
                     messages.success(request, 'Successfully changed')
-                    return redirect('user-sigin')
+                    return redirect('user-signin')
                 except:
                     messages.error(request, 'Could not change profile!')
                     return redirect('user-profile')
