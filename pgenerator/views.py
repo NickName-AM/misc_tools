@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import random
 import string
-
+from django.contrib import messages
 
 
 # Create your views here.
@@ -40,8 +40,8 @@ def home(request):
         pLength = request.POST['plength']
         error = checkError(pLength)
         if(error):
-            err = {'error': error}
-            return render(request, 'pgenerator/home.html', err)
+            messages.error(request, error)
+            return redirect('pgen-home')
         randomPassword = ''.join(random.choices(charSet, k=int(pLength)))
         return render(request,'pgenerator/home.html', {'randompassword': randomPassword})
 
