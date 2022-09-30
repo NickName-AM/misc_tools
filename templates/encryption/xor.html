@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Add{% endblock title %}
+
+{% block body %}
+    <h1>XOR</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="text">Text</label>
+            <input type="text" name="text" id="text" class="input-box" size="70" required>
+        </div>
+        <div>
+            <label for="key">Key</label>
+            <input type="text" name="key" id="key" class="input-box" size="70" required>    
+        </div>
+        <div>
+            <input type="submit" class="submit-btn" value="Encrypt/Decrypt" style="margin-top: 20px;">
+        </div>
+    </form>
+
+    {% if data %}
+        <p class="error-password">{{ data }}</p>
+    {% endif %}
+{% endblock body %}

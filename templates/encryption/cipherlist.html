@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}List of Ciphers{% endblock title %}
+
+{% block body %}
+    <h1>List of Encryption Algorithms</h1>
+
+    <li>
+        <ul class="cipher-list-items"><a href="{% url 'encryption-xor' %}">XOR</a></ul>
+    </li>
+
+{% endblock body %}

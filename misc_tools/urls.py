@@ -24,4 +24,5 @@ urlpatterns = [
     path('pgenerator/', include('pgenerator.urls')),
     path('todo/', include('todo_app.urls')),
     path('users/', include('users.urls')),
+    path('encryption/', include('encryption.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
