@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}BotCrypt{% endblock title %}
+
+{% block body %}
+    <h1>b0t Crypt</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <input type="radio" name="cryptoption" id="encrypt" value="encrypt" checked>
+            <label for="encrypt">Encrypt</label>
+            <input type="radio" name="cryptoption" id="decrypt" value="decrypt">
+            <label for="decrypt">Decrypt</label>
+        </div>
+        <div>
+            <label for="text">Text</label>
+            <input type="text" name="text" id="text" class="input-box" size="70" required>
+        </div>
+        <div>
+            <label for="key">Key</label>
+            <input type="text" name="key" id="key" class="input-box" size="70" required>    
+        </div>
+        <div>
+            <input type="submit" class="submit-btn" value="Submit" style="margin-top: 20px;">
+        </div>
+    </form>
+
+    {% if data %}
+        <p class="error-password">{{ data }}</p>
+    {% endif %}
+{% endblock body %}
