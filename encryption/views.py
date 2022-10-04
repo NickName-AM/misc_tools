@@ -4,16 +4,17 @@ from django.contrib import messages
 import random
 
 # Create your views here.
+ALLCHARS = "d=,8hal:W;SvU{3bF0VH\\[.nQ?Y^>/L6R#yM<\"IqPp_E4iA%sN7x'em|f2 c~z}JruGjkOK`&$]9TZwDXCt@5g()-!1*B+o"
+ALLCHARS_LEN = len(ALLCHARS)
 
 # Home page - List of ciphers
 def cipherlist(request):
     return render(request, 'encryption/cipherlist.html')
 
 # XOR cipher
-def xor_operation(string, key):
+def xor(string, key):
     cipherText = ''
-    allChars = "d=,8hal:W;SvU{3bF0VH\\[.nQ?Y^>/L6R#yM<\"IqPp_E4iA%sN7x'em|f2 c~z}JruGjkOK`&$]9TZwDXCt@5g()-!1*B+o"
-    l = len(allChars)
+    l = len(ALLCHARS)
     if len(string) < 1 or len(key) < 1:
         messages.error(request, 'Atleast type something')
         return redirect('encryption-xor')
@@ -22,18 +23,18 @@ def xor_operation(string, key):
         return redirect('encryption-xor')
     charKey = zip(list(string), list(key))
     for c, k in charKey:
-        cipherChar = allChars[(allChars.index(c) ^ allChars.index(k)) % l]
+        cipherChar = ALLCHARS[(ALLCHARS.index(c) ^ ALLCHARS.index(k)) % l]
         cipherText+=cipherChar
 
 # XOR cipher request handler
-def xor(request):
+def xor_handler(request):
     if request.method == 'GET':
         return render(request, 'encryption/xor.html')
 
     elif request.method == 'POST':
         string = request.POST['text']
         key = request.POST['key']
-        cipherText = xor_operation(string, key)
+        cipherText = xor(string, key)
         return render(request, 'encryption/xor.html', {'data': cipherText})
 
 
@@ -133,8 +134,8 @@ def bot_decrypt(message, tempkey):
             i=i+1        
     return decrypted
 
-# b0t encryption/decryption
-def botcrypt(request):
+# b0t encryption/decryption handler
+def botcrypt_handler(request):
     if request.method == 'GET':
         return render(request, 'encryption/botcrypt.html')
     elif request.method == 'POST':
@@ -150,3 +151,40 @@ def botcrypt(request):
         else:
             data = bot_decrypt(text, key)
         return render(request, 'encryption/botcrypt.html', {'data': data})
+
+# Caesar Cipher
+def caesarcipher_encrypt(string, key):
+    cipher_text=''
+    for i in string:
+        charac = ALLCHARS[(ALLCHARS.index(i) + key) % ALLCHARS_LEN]
+        cipher_text += charac
+    return cipher_text
+
+def caesarcipher_decrypt(string, key):
+    cipher_text=''
+    for i in string:
+        charac = ALLCHARS[(ALLCHARS.index(i) - key) % ALLCHARS_LEN]
+        cipher_text += charac
+    return cipher_text
+
+def caesarcipher_handler(request):
+    if request.method == 'GET':
+        return render(request, 'encryption/caesarcipher.html')
+    elif request.method == 'POST':
+        crypt_option = request.POST['cryptoption']
+        text = request.POST['text']
+        key = request.POST['key']
+        # if nothing is given
+        if len(text) < 1 or len(key) < 1:
+            return redirect('encryption-caesarcipher')
+        try:
+            key = int(key)
+        except:
+            messages.error('Enter an integer(for key).')
+            return redirect('encryption-caesarcipher')
+        
+        if crypt_option == 'encrypt':
+            data = caesarcipher_encrypt(text, key)
+        else:
+            data = caesarcipher_decrypt(text, key)
+        return render(request, 'encryption/caesarcipher.html', {'data': data})
