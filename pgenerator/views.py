@@ -40,7 +40,7 @@ def home(request):
         pLength = request.POST['plength']
         error = checkError(pLength)
         if(error):
-            messages.error(request, werror)
+            messages.error(request, error)
             return redirect('pgen-home')
         randomPassword = ''.join(random.choices(charSet, k=int(pLength)))
         return render(request,'pgenerator/home.html', {'randompassword': randomPassword})
