@@ -13,7 +13,7 @@ def cipherlist(request):
 
 # XOR cipher
 def xor(string, key):
-    cipherText = ''
+    cipher_text = ''
     l = len(ALLCHARS)
     if len(string) < 1 or len(key) < 1:
         messages.error(request, 'Atleast type something')
@@ -23,8 +23,8 @@ def xor(string, key):
         return redirect('encryption-xor')
     charKey = zip(list(string), list(key))
     for c, k in charKey:
-        cipherChar = ALLCHARS[(ALLCHARS.index(c) ^ ALLCHARS.index(k)) % l]
-        cipherText+=cipherChar
+        cipher_char = ALLCHARS[(ALLCHARS.index(c) ^ ALLCHARS.index(k)) % l]
+        cipher_text+=cipher_char
 
 # XOR cipher request handler
 def xor_handler(request):
@@ -34,8 +34,8 @@ def xor_handler(request):
     elif request.method == 'POST':
         string = request.POST['text']
         key = request.POST['key']
-        cipherText = xor(string, key)
-        return render(request, 'encryption/xor.html', {'data': cipherText})
+        cipher_text = xor(string, key)
+        return render(request, 'encryption/xor.html', {'data': cipher_text})
 
 
 # By b0t
