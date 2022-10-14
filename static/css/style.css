@@ -163,15 +163,13 @@ h2{
 }
 
 .block_note{
-    display: inline-block;
+    display: block;
     margin: 20px 0px;
 }
 
-.add-note-heading{
+.add-note-heading,.add-note-description{
     font-size: 20px;
-}
-.add-note-description{
-    font-size: 20px;
+    width: 100%;
 }
 
 /* End TODO */

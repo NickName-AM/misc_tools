@@ -4,18 +4,19 @@
 
 
 {% block body %}
-<div class = "container">
-    <div class = "block_note">
-        <h1>{{title}}</h1>
-    </div>
 
+    <div class = "block_note">
+        <h1>{{note.noteuser}}</h1>
+    </div>
+    <br>
     <form method="POST">
         {% csrf_token %}
-        <div class = "block_note">
-            <label for="description"><h1>Description:</h1></label>
-            <input type="text" name="description" id="description" size="50" maxlength="30" style="padding: 20px;font-size: 20px;">
+        <div class="block_note">
+            <label for="description"><h1>Description</h1></label>
+            <br>
+            <textarea class="input-box add-note-description" name="description" id="description" rows="10" maxlength="500" wrap="soft" required>{{note.description}}</textarea>
         </div>
             <center><input type="submit" class="submit-btn" value="Update"></center>
     </form>
-</div>
+
 {% endblock body %}

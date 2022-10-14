@@ -9,7 +9,8 @@
 <div class="container">
 <form method="POST">
     {% csrf_token %}
-    {{ form|crispy}}
+    {{form|crispy}}
+    
     <input type="submit" class="submit-btn" value="Register!">
 </form>
 <hr>

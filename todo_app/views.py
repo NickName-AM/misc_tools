@@ -26,12 +26,12 @@ def add(request):
 @login_required
 def edit(request, n_id):
     note = Note.objects.get(id=n_id)
-    if not request.user != note.noteuser:
-        messages.error('Who are you?')
+    if request.user != note.noteuser:
+        messages.error(request, 'Who are you?')
         return redirect('todo-home')
 
     if request.method == "GET":
-        return render(request, 'todo_app/edit.html', {'title': note})
+        return render(request, 'todo_app/edit.html', {'note': note})
     elif request.method == "POST":
         # Get the note whose value is n_id
         note = Note.objects.get(id=n_id)
@@ -43,7 +43,7 @@ def edit(request, n_id):
 def delete(request, n_id):
     note = Note.objects.get(id=n_id)
     if request.user != note.noteuser:
-        messages.error('Who are you?')
+        messages.error(request, 'Who are you?')
         return redirect('todo-home')
 
     note = Note.objects.get(id=n_id)
