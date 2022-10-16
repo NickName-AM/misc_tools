@@ -14,7 +14,11 @@
 </head>
 <body>
     <div class="container-home">
+        {% if user.is_authenticated %}
+        <div class="items item-1-{{user.myuser.theme}}">
+        {% else %}
         <div class="items item-1-dark">
+        {% endif %}
             <!-- Left navbar-->
             <div class="user-icon">
                 {% if user.is_authenticated %}
@@ -31,7 +35,11 @@
                 </li>
             </div>    
         </div>
+        {% if user.is_authenticated %}
+        <div class="items item-2-{{user.myuser.theme}}">
+        {% else %}
         <div class="items item-2-dark">
+        {% endif %}
             {% if messages %}
                     {% for message in messages %}
                     <div class="alert">{{message}}</div>
