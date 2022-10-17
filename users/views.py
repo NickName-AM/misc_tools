@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import MyUser
+from .forms import UserRegisterForm
 
 # Create your views here.
 
@@ -11,24 +12,21 @@ allowed_themes = ('light', 'dark')
 
 def register(request):
     if request.method == 'POST':
-        uname = request.POST['username']
-        passwd1 = request.POST['password1']
-        passwd2 = request.POST['password2']
-        email = request.POST['email']
-        my_theme = request.POST['theme']
-        if my_theme not in allowed_themes:
-            my_theme = 'dark'
-        if passwd1 == passwd2:
-            uza = User.objects.create_user(username=uname, email=email, password=passwd1)
-            MyUser.objects.create(user=uza, theme=my_theme)
-
-            messages.success(request, f'{uname} created.')
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            theme = form.cleaned_data.get('theme')
+            user = User.objects.get(username=username)
+            MyUser.objects.create(user=user,theme=theme)
+            messages.success(request, f'{username} created!')
         else:
-            messages.success(request, f'{uname} creation failed.')
+            messages.error(request, f'Something went wrong')
         
         return redirect('user-signin')
     else:
-        return render(request, 'users/register.html')
+        form = UserRegisterForm()
+        return render(request, 'users/register.html', {'form': form})
 
 def signin(request):
     if request.method == 'GET':
@@ -78,8 +76,7 @@ def profile(request):
 
         if user.check_password(old_passwd):
             if new_passwd != old_passwd and len(new_passwd) > 0 and len(uname) > 0:
-                try:
-                    
+                try: 
                     user.username = uname
                     user.set_password(new_passwd)
                     user.save()
@@ -87,7 +84,7 @@ def profile(request):
                     messages.success(request, 'Successfully changed')
                     return redirect('user-signin')
                 except:
-                    messages.error(request, 'Could not change profile!')
+                    messages.error(request, 'Username/Password could not be changed!')
                     return redirect('user-profile')
             else:
                 messages.error(request, 'Could not change profile!')

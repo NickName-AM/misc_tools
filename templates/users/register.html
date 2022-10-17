@@ -9,22 +9,7 @@
 <div class="container">
 <form method="POST">
     {% csrf_token %}
-    <label for="username">Username</label>
-    <input type="text" name="username" id="username">
-
-    <label for="email">E-mail</label>
-    <input type="email" name="email" id="email">
-
-    <label for="password1">Password</label>
-    <input type="password" name="password1" id="password1">
-
-    <label for="password2">Re-type password</label>
-    <input type="password" name="password2" id="password2">
-
-    <input type="radio" name="theme" id="light" value="light">
-    <label for="light">Light</label>
-    <input type="radio" name="theme" id="dark" value="dark" checked>
-    <label for="">Dark</label>
+    {{form|crispy}}
 
     <input type="submit" class="submit-btn" value="Register!">
 </form>

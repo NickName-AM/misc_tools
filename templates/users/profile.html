@@ -27,9 +27,18 @@
                 <input type="submit" value="Change" class="submit-btn">
             </div>
             <div>
+                {% if user.myuser.theme == "light" %}
+                <input type="radio" name="theme" id="light" value="light" checked>
+                {% else %}
                 <input type="radio" name="theme" id="light" value="light">
+                {% endif %}
                 <label for="light">Light</label>
+
+                {% if user.myuser.theme == "dark" %}
+                <input type="radio" name="theme" id="dark" value="dark" checked>
+                {% else %}
                 <input type="radio" name="theme" id="dark" value="dark">
+                {% endif %}
                 <label for="">Dark</label>
             </div>
         </form>
