@@ -25,4 +25,5 @@ urlpatterns = [
     path('todo/', include('todo_app.urls')),
     path('users/', include('users.urls')),
     path('encryption/', include('encryption.urls')),
+    path('conversion/', include('conversion.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

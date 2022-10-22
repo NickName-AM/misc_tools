@@ -7,7 +7,7 @@
     <h1> Password Generator </h1>
     <form method="POST">
         {% csrf_token %}
-        <div class="form-radio">
+        <div class="form-radio outer-box">
             <div class="form-radio-item">
                 <input type="radio" name="charset" id="ucase" value="upper">
                 <label for="ucase">Uppercase [A-Z]</label><br>
@@ -29,7 +29,7 @@
                 <label for="all">All</label>
              </div>   
         </div><br>
-        <div class="form-plength">
+        <div class="form-plength outer-box">
             <label for="plength">Password Length: </label><br>
             <input type="number" name="plength" id="plength" size="15" placeholder="Ex: 10" class="input-box">
             <input type="submit" value="Generate" class="submit-btn">

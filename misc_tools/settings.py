@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'pgenerator',
     'todo_app',
     'users',
+    'conversion',
     'crispy_forms',
 ]
 

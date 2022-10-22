@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Number to roman{% endblock title %}
+
+{% block body %}
+    <h1>Number to Roman</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="outer-box">
+            <label for="num">Number</label>
+            <input type="number" name="num" id="num" class="input-box" size="70" required>
+        </div>
+        <div>
+            <input type="submit" class="submit-btn" value="Submit" style="margin-top: 20px;">
+        </div>
+    </form>
+
+    {% if data %}
+        <p class="error-password">{{ data }}</p>
+    {% endif %}
+{% endblock body %}
